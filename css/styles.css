@@ -1,0 +1,735 @@
+:root {
+    /* Variables*/
+    /* COLOR */
+    --color-bg: #333;
+    --color-text: white;
+    --color-primary: #f1efec;
+    --color-secundary: #eeeeee;
+    --color-border: #ffffff;
+    --color-button: #5c5c5c;
+
+    /* TAMAÑO TIPOGRAFÍA */
+    --font-family-base: 'Poppins', 'Arial', sans-serif;
+    --font-size-S: 0.9rem;
+    --font-size-M: 1.2rem;
+    --font-size-L: 1.5rem;
+    --font-size-XL: 2rem;
+    --font-size-XXL: 3rem;
+    
+    /* TAMAÑO ESPACIADO */
+    --spacing-S: 0.5rem;
+    --spacing-M: 1rem;
+    --spacing-L: 2rem;
+    --spacing-XL: 3rem;
+    --spacing-XXL: 4rem;
+
+    /* BORDES */
+    --border-radius: 0.7rem;
+}
+
+/* Fuentes globales*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap');
+
+/* SCROLL */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Estilos generales */
+body {
+    font-family: var(--font-family-base);
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    padding: var(--spacing-L);
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-right: var(--spacing-XL);
+    display: flex;
+    gap: var(--spacing-L);
+}
+
+nav ul li a {
+    color: var(--color-text);
+    text-decoration: none;
+    font-size: var(--font-size-M);
+}
+
+section {
+    padding-right: var(--spacing-L);
+    padding-left: var(--spacing-L);
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: var(--font-size-L);
+    text-align: center;
+}
+
+h3 {
+    font-size: var(--font-size-M);
+    text-align: center;
+}
+
+p {
+    font-size: var(--font-size-S);
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+img {
+    max-width: 100%; height: auto;
+}
+
+/* Estilos de secciones */
+
+/* MENU FIJO */
+
+header {
+    color: var(--color-text);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--spacing-S);
+    padding: var(--spacing-L);
+    background-color: rgba(51, 51, 51, 0.9);
+}
+
+/* LOGOTIPO */
+.logo-sofa {
+    width: 15vw;
+    height: auto;
+    cursor: pointer;
+}
+
+/*_____________________________________ MENU HAMBURGUESA _____________________________________*/ 
+
+    .nav-links {
+        display: none;
+    }
+    
+    #menu-desplegable {
+        position: absolute;
+        opacity: 0;
+        z-index: -1;
+    }
+
+    .menu-desplegable-check .close-icon {
+        display: none;
+        position: fixed;
+        top: 0.7rem;
+        right: 1.5rem;
+        font-size: 2.5rem;
+        color: white;
+        cursor: pointer;
+    }
+
+    .menu-icon {
+        display: inline-block;
+        cursor: pointer;
+        position: fixed;
+        top: 0.8rem;
+        right: 1.5rem;
+        width: 12vw;
+        height: auto;
+    }
+
+    #menu-desplegable:checked ~ .menu-toggle .menu-icon {
+        display: none;
+    }
+
+    #menu-desplegable:checked ~ .menu-toggle .close-icon {
+        display: block;
+    }
+
+    #menu-desplegable:checked ~ .nav-links {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: rgba(51, 51, 51, 0.9);
+        text-align: center;
+        z-index: 999;
+    }
+
+    .nav-links li {
+        width: 100%;
+        margin: var(--spacing-S) 0;
+    }
+
+    .nav-links li a {
+        color: white;
+        font-size: var(--font-size-L);
+        text-decoration: none;
+        display: block;
+        padding: var(--spacing-S);
+        transition: background-color 0.3s ease, padding 0.3s ease;
+    }
+
+    .nav-links li a:hover {
+        background-color: var(--color-primary);
+        color: var(--color-bg);
+    }
+/*_____________________________________ MENU HAMBURGUESA FIN_____________________________________*/ 
+
+.navigation a:hover {
+    color: var(--color-bg);
+}
+.navigation a {
+    transition: color 0.3s ease-in-out;
+}
+
+.banner img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    z-index: -1;
+}
+    /* Animación */
+    .arrow {
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 3rem;
+        color: var(--color-text);
+        animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 20%, 50%, 80%, 100% {
+            transform: translate(-50%, 0);
+        }
+        40% {
+            transform: translate(-50%, -15px);
+        }
+        60% {
+            transform: translate(-50%, -8px);
+        }
+    }
+
+/* INICIO */
+
+#iniciohome {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--color-text);
+}
+
+    #iniciohome h1, p {
+        position: relative;
+        z-index: 1;
+        font-weight: normal;
+    }
+
+
+    #iniciohome p {
+        font-size: var(--font-size-L);
+    }
+    /* Animación */
+    @keyframes slide-in {
+        from {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+    
+    #iniciohome h1,
+    #iniciohome p {
+        animation: slide-in 0.5s forwards;
+    }
+
+/* PRODUCTOS */
+
+#productoshome {
+    padding-top: var(--spacing-L);
+    padding-right: var(--spacing-M);
+    padding-left: var(--spacing-M);
+    padding-bottom: var(--spacing-L);
+}
+
+.producto {
+    padding-right: var(--spacing-L);
+    padding-left: var(--spacing-L);
+    padding-bottom: var(--spacing-XL);
+}
+
+.producto img {
+    border-radius: var(--border-radius);
+}
+    /* Hover */
+    .imagen-producto {
+        position: relative;
+        width: 100%; 
+        aspect-ratio: 7/9;
+        overflow: hidden;
+    }
+    
+    .img-frontal, .img-detras {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: none;
+    }
+    
+    .img-frontal {
+        display: block;
+    }
+    
+    .producto:hover .img-frontal {
+        display: none;
+    }
+    
+    .producto:hover .img-detras {
+        display: block;
+    }
+    
+
+/* CARACTERISTICAS */
+#caracteristicashome {
+    background-color: var(--color-primary);
+    padding-top: var(--spacing-L);
+    padding-bottom: var(--spacing-XL);
+}
+
+.caracteristicas {
+    padding: var(--spacing-L);
+    background-color: var(--color-border);
+    border: 1px solid var(--color-border);
+    border-radius: var(--spacing-L);
+    text-align: center;
+    box-shadow: 0 2px 10px rgba(100, 100, 100, 0.1);
+}
+
+.caracteristicas img{
+    border-radius: 50%;
+    width: 30vw;
+    height: auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.caracteristicas img:hover {
+    transform: scale(1.1);
+}
+
+.caracteristicas:hover {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.caracteristicas-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: var(--spacing-L);
+    padding-bottom: 2rem;
+}
+
+.caracteristicas {
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* VIDEO */
+.video-yt {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+}
+
+/* PLANES-PRECIOS-ENVIO */
+#envioshome {
+    padding-top: var(--spacing-L);
+    padding-bottom: var(--spacing-L);
+}
+
+#envioshome .planes-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-S);
+    text-align: center;
+    margin: 0 auto;
+}
+
+.plan {
+    background-color:  var(--color-primary);
+    border-radius: var(--border-radius);
+    padding: var(--spacing-M);
+    width: 90%;
+    margin-bottom: var(--spacing-L);
+    transition: box-shadow 0.3s ease-in-out;
+}
+    /* Hover */
+    .plan:hover {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+.plan p {
+    padding-bottom: var(--spacing-L);
+}
+
+.plan .precio {
+    font-size: 1.8rem;
+    color: burlywood;
+}
+
+.boton {
+    background-color: var(--color-button);
+    color: var(--color-text);
+    padding: 15px 40px;
+    border: none;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-bottom: var(--spacing-M);
+}
+
+.boton:hover {
+    background-color: var(--color-bg);
+}
+
+    /* Hover */
+    .boton {
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+    
+    .boton:hover {
+        background-color: var(--color-bg);
+        transform: scale(1.05);
+    }
+
+    
+/* VALORACIONES */
+#valoracioneshome {
+    padding-top: var(--spacing-S);
+    padding-bottom: var(--spacing-L);
+}
+
+.valoracion {
+    padding: var(--spacing-L);
+    background-color: #f9f9f9;
+    text-align: center;
+    border-radius: var(--border-radius);
+}
+
+.valoracion img {
+    width: 5rem;
+    height: 5rem;
+    margin-bottom: var(--spacing-M);
+}
+
+.valoracion-1, .valoracion-3 {
+    display: none;
+}
+
+/* CONTACTO - FORMULARIO */
+
+#contactohome {
+    padding-top: var(--spacing-L);
+    padding-bottom: var(--spacing-XL);
+    background-color: var(--color-secundary);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    max-width: 95%;
+    margin: 0 auto;
+    font-size: var(--spacing-M);
+}
+
+form input, form textarea {
+    margin-bottom: var(--spacing-L);
+    padding: var(--spacing-S);
+    border: none;
+    border-radius: var(--border-radius);
+    width: 90%;
+    display: block;
+}
+
+form textarea {
+    height: 5rem;
+}
+
+form button {
+    padding: var(--spacing-M);
+    background-color: var(--color-button);
+    color: var(--color-text);
+    border: none;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+    width: 100%;
+}
+
+/* Footer */
+footer {
+    background-color: var(--color-bg);
+    color: var(--color-text);
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: var(--color-text);
+}
+
+footer p {
+    font-size: 0.7rem;
+}
+
+/* --- A partir de aquí, Media Queries --- */
+/* Mvl o Tablet pequeña (más de 480px) */
+@media screen and (min-width: 480px){
+
+    header .logo-sofa {
+        width: 10vw;
+    }
+
+    .menu-icon {
+        top: 0.6rem;
+        width: 10vw;
+    }
+
+    .caracteristicas img {
+        width: 25vw;
+    }
+
+}
+
+/* Pantallas o tablets grandes (más de 768px) */
+@media screen and (min-width: 768px) {
+
+    header {
+        padding: var(--spacing-XL);
+    }
+
+
+    header .logo-sofa {
+        width: 8vw;
+    }
+
+    h2 {
+        font-size: var(--font-size-XL);
+        margin-bottom: var(--spacing-XL)
+    }
+    .menu-icon {
+        top: 1rem;
+        width: 6vw;
+    }
+
+    .productos-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .productos-grid .producto {
+        flex-basis: 40%;
+    }
+
+    .caracteristicas img{
+        width: 15vw;
+    }
+    
+    .caracteristica-1,
+    .caracteristica-2, 
+    .caracteristica-3,
+    .caracteristica-4 { 
+        flex: 1 1 calc(50% - 2rem);
+        max-width: calc(50% - 2rem);
+    }
+
+    .caracteristica-5 {
+        flex: 1 1 100%;
+        max-width: calc(100% - 2rem);
+    }
+
+    .valoracionesflex {
+        display: flex;
+        gap: var(--spacing-M);
+    }
+
+    .valoracion img {
+        width: 4rem;
+        height: 4rem;
+        margin-bottom: var(--spacing-M);
+    }
+
+    .valoracion-3 {
+        display: block;
+    }
+
+    form {
+        max-width: 80%;
+        align-content: center;
+    }
+    
+    form input, form textarea {
+        width: 100%;
+    }
+    
+    form button {
+        width: 100%;
+    }
+}
+
+/* Desktop grande (más de 1025px) */
+@media screen and (min-width: 1025px) {
+    h1 {
+        font-size: 4rem;
+    }
+    
+    h3 {
+        font-size: var(--font-size-L);
+    }
+
+    p {
+        font-size: var(--font-size-M);
+    }
+
+    /* Ocultar el menú hamburguesa */
+    .menu-desplegable-check {
+        display: none; 
+    }
+    /* Mostrar el menú estándar*/
+    .nav-links {
+        display: flex;
+        flex-direction: row;
+        gap: var(--spacing-L);
+        position: static;
+        padding: var(--spacing-M);
+    }
+    
+    nav ul {
+        display: flex;
+        padding-right: 0;
+    }
+
+    header .logo-sofa {
+        width: 4vw;
+    }
+
+    .menu-icon {
+        display: none;
+    }
+    
+    .navigation {
+        display: flex;
+    }
+
+    nav ul li a {
+        font-size: var(--font-size-M);
+    }
+
+    .nav-links {
+        display: flex;
+    }
+
+    .producto {
+    padding-bottom: var(--spacing-XXL);
+    }
+
+    .productos-grid .producto {
+        flex-basis: 25%;
+    }
+
+    .caracteristicas {
+        flex: 1 1 calc(33.33% - var(--spacing-L));
+        max-width: calc(33.33% - var(--spacing-L));
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .caracteristica-4,
+    .caracteristica-5 {
+        flex: 1 1 calc(50% - var(--spacing-L));
+        max-width: calc(50% - var(--spacing-L));
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+    .boton {
+        margin-bottom: var(--spacing-L);
+    }
+
+    #envioshome .planes-grid {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: var(--spacing-L);
+        flex-wrap: nowrap;
+    }
+    .valoracion-1 {
+        display: block;
+    }
+    
+    .valoracionesflex {
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: var(--spacing-L);
+        flex-wrap: nowrap;
+        padding-bottom: 5rem;
+    }
+
+    .valoracion {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 1;
+        margin-bottom: 0;
+        text-align: center;
+    }
+
+    .valoracion img {
+        width: 6rem;
+        height: 6rem;
+        margin-bottom: var(--spacing-L);
+    }
+
+    form {
+        max-width: 50%;
+    }
+
+    footer p {
+        font-size: var(--font-size-M);
+    }
+}
