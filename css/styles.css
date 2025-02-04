@@ -116,7 +116,8 @@ header {
 /* LOGOTIPO */
 .logo-sofa {
     width: 15vw;
-    height: auto;
+    height: 15vw;
+    object-fit: contain;
     cursor: pointer;
 }
 
