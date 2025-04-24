@@ -626,10 +626,10 @@ footer p {
         font-size: var(--font-size-M);
     }
 
-    /* Ocultar el menú hamburguesa */
+    /* Ocultar el menú hamburguesa *
     .menu-desplegable-check {
         display: none; 
-    }
+    }*/
     /* Mostrar el menú estándar*/
     .nav-links {
         display: flex;
